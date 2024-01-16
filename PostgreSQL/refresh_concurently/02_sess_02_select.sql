@@ -8,8 +8,9 @@
 --			- mv is locked (not reachable until the main transaction is committed)
 --		- refresh WITH concurently
 --			- mv is NOT locked (is reachable)
---			- exposes data valid before the refresh
+--			- exposes data valid before the refresh (until the main transaction is committed)
 --			- new data are exposed after the main transaction is committed
+--		- refresh never impicitly commits
 SELECT * FROM lfl_test.mv_refresh_01_tbl;
 
 SELECT * FROM lfl_test.mv_refresh_02_mv;
