@@ -43,7 +43,7 @@ BEGIN
 
 	RAISE NOTICE 'inserted';
 
-	--if we want to prevent the possible exception in the select to rollback the previous DML, we need to use separate begin-exception-end block 
+	--if we want to prevent the possible exception raised by the select from rolling back the previous DML, we need to use separate begin-exception (!!)-end block (just begin-end is not sufficient!!) 
 	BEGIN
 		SELECT 1/0 INTO vi_val;
 	EXCEPTION
